@@ -7,11 +7,11 @@ from .forms import NovelForm
 from django.views.generic.list import ListView
 from django.views import View
 
-class IndexView(ListView):
-    model = Novel
-
 def index(request):
     return render(request, "translators/index.html")
+class IndexView(ListView):
+    template_name = "translators/novel_list.html"
+    model = Novel
 
 class NovelFormView(View):
 

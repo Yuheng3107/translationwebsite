@@ -6,12 +6,12 @@
 
 {% block main %}
 <p>
-<form action="/addnovel" method="post" id="upload_form" enctype="multipart/form-data">
+<form action="" method="post" id="upload_form" enctype="multipart/form-data">
     {% csrf_token %}
     {{form | crispy}}
     
     <input type="submit" value="Submit">
-    <input type="submit" value="Cancel" onclick="window.location.href='{% url 'translators:index'}'; return false;">
+    <input type="submit" value="Cancel" onclick="window.location.href='{% url 'translators:novel_list' %}'; return false;">
 </form>
 </p>
 <script>

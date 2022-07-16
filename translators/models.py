@@ -8,6 +8,8 @@ class Genre(models.Model):
 class WordType(models.Model):
     # Defines the Category a Translated Word belongs to
     type = models.CharField(max_length=100)
+
+
 class Record(models.Model):
     # One Record of a Translated Word
     word_type = models.ForeignKey(WordType, on_delete=models.CASCADE)

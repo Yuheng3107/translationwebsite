@@ -5,6 +5,6 @@ from . import views
 app_name = 'translators'
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
-    
+    # path("/translators", views.IndexView.as_view(), name= "index"),
 ]
 

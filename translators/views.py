@@ -10,4 +10,5 @@ class IndexView(ListView):
 def index(request):
     return render(request, "translators/index.html")
 
+class NovelFormView()
 

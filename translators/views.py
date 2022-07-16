@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from .models import Novel
@@ -13,8 +14,8 @@ class NovelListView(ListView):
     template_name = "translators/novel_list.html"
     model = Novel
 
-class NovelFormView(View):
-
+class NovelFormView(LoginRequiredMixin, View):
+    
     template_name = "translators/novel_form.html"
     success_url = reverse_lazy('translators:novel_list')
     def get(self, request):
@@ -33,6 +34,14 @@ class NovelFormView(View):
         novel.save()
         form.save_m2m()
         return redirect(self.success_url)
+
+def stream_file(request, pk):
+    novel = get_object_or_404(Novel, id=pk)
+    response = HttpResponse()
+    response['Content-Type'] = novel.content_type
+    response['Content-Length'] = len(novel.picture)
+    response.write(novel.picture)
+    return response
 
 
 

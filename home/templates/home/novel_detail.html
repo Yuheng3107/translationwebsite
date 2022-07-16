@@ -1,0 +1,19 @@
+{% extends "./layout.html" %} 
+{% block title %} 
+{% if novel %}
+{{novel.title}}
+{% endif %}
+{% endblock %}
+{% block main %}  
+{% if novel %}
+{{novel.sypnosis}}
+Genres:
+{% for genre in genres %}
+{{genre.name}}
+{% endfor %}
+{% if novel.content_type %}
+<p>Picture:</p>
+<img style="float: right; max-width:50%;" src="{% url 'translators:novel_picture' novel.id %}">
+{% endif %}
+{% endif %}
+{% endblock %}

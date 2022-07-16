@@ -15,7 +15,7 @@ class NovelListView(ListView):
     model = Novel
 
 class NovelFormView(LoginRequiredMixin, View):
-    
+    login_url = 'login'
     template_name = "translators/novel_form.html"
     success_url = reverse_lazy('translators:novel_list')
     def get(self, request):

@@ -17,5 +17,3 @@ class NovelDetailView(DetailView):
         ctx = {'novel': novel, 'genres': genres}
         return render(request, self.template_name, ctx)
     
-
-# Create your views here.

@@ -1,14 +1,37 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from django.http import HttpResponse
 from .models import Novel
+from .forms import NovelForm
 
 from django.views.generic.list import ListView
-
-class IndexView(ListView):
-    model = Novel
+from django.views import View
 
 def index(request):
-    return TemplateResponse(request, "translators/index.html")
+    return render(request, "translators/index.html")
+class IndexView(ListView):
+    template_name = "translators/novel_list.html"
+    model = Novel
+
+class NovelFormView(View):
+
+    template_name = "translators/novel_form.html"
+    success_url = reverse_lazy('translators:index')
+    def get(self, request):
+        form = NovelForm()
+        ctx = {"form": form}
+        return render(request, self.template_name, ctx)
+
+    def post(self, request):
+        form = NovelForm(request.POST, request.FILES or None)
+
+        if not form.is_valid():
+            ctx = {"form": form}
+            return render(request, self.template_name, ctx)
+
+        novel = form.save()
+        return redirect(self.success_url)
+
 
 
 

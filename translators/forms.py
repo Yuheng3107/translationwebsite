@@ -15,7 +15,7 @@ class NovelForm(forms.ModelForm):
     
     class Meta:
         model = Novel
-        fields = ['title', 'genres', 'picture']
+        fields = ['title', 'synopsis', 'genres', 'picture']
     
     genres = forms.ModelMultipleChoiceField(
         queryset = Genre.objects.all(),

@@ -36,6 +36,7 @@ class Record(models.Model):
 class Novel(models.Model):
     # Allows us to store data for a specific Novel in the database
     title = models.CharField(max_length=100, validators=[MinLengthValidator(5, "Title must be longer than 5 characters")])
+    synopsis = models.TextField()
     genres = models.ManyToManyField(Genre, related_name="genres")
     picture = models.BinaryField(null=True, editable=True)
     content_type = models.CharField(max_length=256, null=True, help_text='The MIMEType of the file') 

@@ -4,7 +4,7 @@ from . import views
 
 app_name = 'translators'
 urlpatterns = [
-    path('', views.IndexView.as_view(), name='index'),
+    path('', views.NovelListView.as_view(), name='novel_list'),
     path('addnovel', views.NovelFormView.as_view(), name='novel_form')
 ]
 

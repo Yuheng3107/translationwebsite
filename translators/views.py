@@ -9,14 +9,14 @@ from django.views import View
 
 def index(request):
     return render(request, "translators/index.html")
-class IndexView(ListView):
+class NovelListView(ListView):
     template_name = "translators/novel_list.html"
     model = Novel
 
 class NovelFormView(View):
 
     template_name = "translators/novel_form.html"
-    success_url = reverse_lazy('translators:index')
+    success_url = reverse_lazy('translators:novel_list')
     def get(self, request):
         form = NovelForm()
         ctx = {"form": form}
@@ -30,6 +30,8 @@ class NovelFormView(View):
             return render(request, self.template_name, ctx)
 
         novel = form.save()
+        novel.save()
+        form.save_m2m()
         return redirect(self.success_url)
 
 

@@ -8,6 +8,7 @@ class IndexView(ListView):
     model = Novel
 
 def index(request):
-    return render(request, "translators/index.html")
+    return TemplateResponse(request, "translators/index.html")
+
 
 

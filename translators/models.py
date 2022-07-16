@@ -5,6 +5,7 @@ class Genre(models.Model):
     # Defines Genres in the database
     name = models.CharField(max_length=20)
 
+
     def __str__(self):
         return self.name
 
@@ -14,6 +15,7 @@ class WordType(models.Model):
 
     def __str__(self):
         return self.type
+
 
 
 class Record(models.Model):
@@ -33,9 +35,8 @@ class Record(models.Model):
 
 class Novel(models.Model):
     # Allows us to store data for a specific Novel in the database
-    title = models.CharField(max_length=100, 
-    validators=[MinLengthValidator(5, "Title must be longer than 5 characters")])
-    genres = models.ManyToManyField(Genre)
+    title = models.CharField(max_length=100, validators=[MinLengthValidator(5, "Title must be longer than 5 characters")])
+    genres = models.ManyToManyField(Genre, related_name="genres")
     picture = models.BinaryField(null=True, editable=True)
     content_type = models.CharField(max_length=256, null=True, help_text='The MIMEType of the file') 
 
@@ -52,7 +53,6 @@ class Chapter(models.Model):
 
     def __str__(self):
         return f"Chapter Name: {self.name}"
-
 
 
 

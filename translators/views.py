@@ -19,7 +19,7 @@ class NovelFormView(View):
     success_url = reverse_lazy('translators:index')
     def get(self, request):
         form = NovelForm()
-        ctx = {"ctx": form}
+        ctx = {"form": form}
         return render(request, self.template_name, ctx)
 
     def post(self, request):

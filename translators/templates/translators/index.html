@@ -1,8 +1,16 @@
 {% extends "./layout.html" %}
+
+{% block styles %}
+<link href="/static/general/index.css" rel="stylesheet">
+{% endblock %}
+
 {% block title %}
 Welcome Page
 {% endblock %}
+
 {% block main %}
-<a href="/translators/">Click Here for the Translator's Portal</a>
-<a href="/home/">Click Here to Read Novels</a>
+<section id="title">
+    <h1>WOVEL</h1>
+</section>
+
 {% endblock %}

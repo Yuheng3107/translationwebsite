@@ -8,14 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     {% load static %}
-    <style href="{% static 'css/navbar.css' %}" rel="stylesheet"></style>
-    
+    <link href="/static/general/reset.css" rel="stylesheet">
+    <link href="/static/general/general.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    {%block styles %}{% endblock %}
 </head>
 <body>
-
+    <h1></h1>
     <!-- Add navbar here please-->
-    {% include "./navbar.html" %}
-{% block main %} 
-{% endblock %}
+    {% include "../general_navbar.html" %}
+    <main> <!-- This main segment will be a css grid -->
+        {% block main %} 
+        {% endblock %}
+    </main>
+
 </body>
 </html>

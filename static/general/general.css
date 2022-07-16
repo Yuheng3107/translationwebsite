@@ -1,0 +1,60 @@
+:root{
+    --navbar-color: #333;
+    --navbar-text: white;
+    --navbar-text-muted: rgb(209, 209, 209);
+    --primary-button:rgb(102, 196, 217);
+}
+
+body{
+    font-family: 'Sora', sans-serif;
+}
+
+/* #region NAVBAR */
+nav {
+    background-color:var(--navbar-color);
+    color:var(--navbar-text);
+    height:4rem;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0 1rem;
+}
+
+nav .app-name{
+    font-weight:700;
+    text-decoration: none;
+    color:var(--navbar-text)
+}
+
+#links {
+    margin-left: 1rem;
+}
+
+
+#links a{
+    color: var(--navbar-text);
+    font-size: 0.8em;   
+    margin: 0 1em;
+}
+
+/* #endregion */
+
+
+main {
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+/* #region TITLE CARD */
+
+
+
+
+/* #region UTILITY CLASSES */
+.btn {
+    text-decoration:none;
+    background-color: var(--primary-button);
+    padding:1em;
+    border-radius: 0.1rem;
+}
+/* #endregion */

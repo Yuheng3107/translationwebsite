@@ -4,15 +4,20 @@ Reader Endpoint
 {% endblock %}
 {% block main %}  
 {% if data %} 
-{% for novel, genres in data %} 
-<p>Title: {{novel.title}}</p>
-<p>Sypnosis: {{novel.sypnosis}}</p>
-<p>Genres: {% for genre in genres %}{{genre.name}} {% endfor %}</p>
-{% if novel.content_type %}
-<p>Picture:</p>
-<img style="float: right; max-width:50%;" src="{% url 'translators:novel_picture' novel.id %}">
-{% endif %}
-<a href="{% url 'home:novel_detail' novel.id %}">Click Here To View The Novel</a>
-{% endfor %}
+<section>
+    {% for novel, genres in data %} 
+        <div>
+            <p>Title: {{novel.title}}</p>
+            <p>Sypnosis: {{novel.sypnosis}}</p>
+            <p>Genres: {% for genre in genres %}{{genre.name}} {% endfor %}</p>
+            {% if novel.content_type %}
+            <p>Picture:</p>
+            <img style="float: right; max-width:50%;" src="{% url 'translators:novel_picture' novel.id %}">
+            {% endif %}
+            <a href="{% url 'home:novel_detail' novel.id %}">Click Here To View The Novel</a>
+        </div>
+    {% endfor %}
+</section>
+
 {% endif %}
 {% endblock %}

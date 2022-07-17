@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import include, path
 from translators import views
 
-app_name = 'home'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),

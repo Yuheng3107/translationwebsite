@@ -22,6 +22,8 @@ class NovelForm(forms.ModelForm):
         widget = forms.CheckboxSelectMultiple
     )
 
+    # title = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+
     def clean(self):
         cleaned_data = super().clean()
         pic = cleaned_data.get('picture')

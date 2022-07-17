@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,19 +11,26 @@
     {% load static %}
     <link href="/static/general/reset.css" rel="stylesheet">
     <link href="/static/general/general.css" rel="stylesheet">
+    {% block styles %}{% endblock %}
+    {% block script %}{% endblock %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    {%block styles %}{% endblock %}
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
 </head>
+
 <body>
     <h1></h1>
     <!-- Add navbar here please-->
     {% include "../general_navbar.html" %}
-    <main> <!-- This main segment will be a css grid -->
-        {% block main %} 
+    <main>
+        <!-- This main segment will be a css grid -->
+        {% block main %}
         {% endblock %}
     </main>
 
+
 </body>
+
 </html>

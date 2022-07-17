@@ -2,8 +2,13 @@
     --navbar-color: #333;
     --navbar-text: white;
     --navbar-text-muted: rgb(209, 209, 209);
-    --primary-button:rgb(102, 196, 217);
+
 }
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
 
 body{
     font-family: 'Sora', sans-serif;
@@ -42,12 +47,11 @@ nav .app-name{
 
 
 main {
+    margin-top:2rem;
     display:grid;
     grid-template-columns: repeat(12, 1fr);
 }
 /* #region TITLE CARD */
-
-
 
 
 /* #region UTILITY CLASSES */
@@ -55,6 +59,9 @@ main {
     text-decoration:none;
     background-color: var(--primary-button);
     padding:1em;
-    border-radius: 0.1rem;
+    border-radius: 0.5rem;
+}
+.btn:hover {
+    filter:brightness(0.95);
 }
 /* #endregion */

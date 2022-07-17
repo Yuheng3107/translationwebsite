@@ -1,0 +1,83 @@
+:root {
+    --form-bg: #15172B;
+    --primary-button:rgb(102, 196, 217);
+    --form-field-bg: #303245;
+    --form-text-primary: aliceblue;
+    --form-text-muted:#9ca1ce;
+}
+
+section {
+    grid-column-start: 3;
+    grid-column-end:11;
+    display:flex;
+    justify-content: center;
+}
+
+
+
+/* #region STYLING FORMS */
+
+form {
+    padding: 2rem;
+    background-color:var(--form-bg);   
+    color:var(--form-text-primary);
+    border-radius:1rem;
+}
+
+div.control-group {
+    margin-bottom:1rem; /* Adds margin below every control-group */
+}
+div.controls {
+    margin-top:0.5rem; /* Adds space between label and input field */
+}
+
+form h1 {
+    font-weight:700;
+    font-size: 2em;
+    margin-bottom: 1rem;
+}
+
+form input {
+    border:unset;
+    width: 100%;
+    height:2rem;
+    background-color: var(--form-field-bg);
+    border-radius: 1rem;
+}
+
+form input[type=checkbox] {
+    width:unset;
+    height:unset;
+}
+
+
+
+form textarea {
+    background-color:var(--form-field-bg);
+    width:100%;
+    border-radius: 1rem;
+    border-bottom-right-radius: unset;
+}
+
+
+/* #div_id_picture .controls{
+    height:2rem;
+} */
+form input[type=file]{
+    height:100%;
+}
+
+form input[type=submit] {
+    color:var(--form-text-primary);
+    background-color: var(--primary-button);
+    font-family: 'Sora', sans-serif;
+    width:50%;
+}
+form input[type=submit]:hover{
+    filter:brightness(0.9)
+}
+
+/* #endregion */
+
+
+

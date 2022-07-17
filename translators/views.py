@@ -12,6 +12,7 @@ def index(request):
     return render(request, "translators/index.html")
 class NovelListView(ListView):
     template_name = "translators/novel_list.html"
+    context_object_name = "novels"
     model = Novel
 
 class NovelFormView(LoginRequiredMixin, View):

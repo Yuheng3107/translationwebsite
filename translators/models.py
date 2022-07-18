@@ -35,9 +35,10 @@ class Record(models.Model):
 
 class Novel(models.Model):
     # Allows us to store data for a specific Novel in the database
-    title = models.CharField(max_length=100, validators=[MinLengthValidator(5, "Title must be longer than 5 characters")])
+    title = models.CharField(max_length=100, unique=True, validators=[MinLengthValidator(5, "Title must be longer than 5 characters")])
     synopsis = models.TextField()
     genres = models.ManyToManyField(Genre, related_name="genres")
+    raws = models.FileField(upload_to='translators/parsing_stuff/')
     picture = models.BinaryField(null=True, editable=True)
     content_type = models.CharField(max_length=256, null=True, help_text='The MIMEType of the file') 
 
@@ -46,10 +47,10 @@ class Novel(models.Model):
 
 class Chapter(models.Model):
     # Allows us to store data for a specific chapter of a novel in the database
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100)
     novel = models.ForeignKey(Novel, on_delete=models.CASCADE)
     content = models.TextField()
-    translator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='translator_name')
+    translator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='translator_name', null=True)
     editor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='editor_name', null=True)
 
     def __str__(self):

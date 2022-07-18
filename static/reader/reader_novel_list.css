@@ -13,6 +13,11 @@
     margin: 0.5em 0;
 }
 
+.novel-synopsis {
+    max-height:4em;
+    overflow-y:auto;
+}
+
 .novel-genres{
     /* line-height: 1.6rem; */
 }
@@ -30,4 +35,11 @@ img {
     /* display:none; */
     width:100%
 
+}
+
+.novel-link:link {
+    color: var(--text-color-primary)
+}
+.novel-link:visited {
+    color: var(--text-color-muted)
 }

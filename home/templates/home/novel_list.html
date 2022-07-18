@@ -24,7 +24,7 @@ Reader Endpoint
             {% if novel.content_type %}
 
             {% endif %}
-            <a href="{% url 'home:novel_detail' novel.id %}">Click Here To View The Novel</a>
+            <a class="novel-link" href="{% url 'home:novel_detail' novel.id %}">Click Here To View The Novel</a>
         </div>
     {% endfor %}
 </section>

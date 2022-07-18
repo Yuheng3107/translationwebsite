@@ -47,7 +47,7 @@ class Novel(models.Model):
 
 class Chapter(models.Model):
     # Allows us to store data for a specific chapter of a novel in the database
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     novel = models.ForeignKey(Novel, on_delete=models.CASCADE)
     content = models.TextField()
     translator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='translator_name', null=True)

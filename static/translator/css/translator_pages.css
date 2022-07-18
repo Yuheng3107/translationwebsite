@@ -46,6 +46,7 @@ form input, form textarea {
     border-radius: 1rem;
     color:var(--form-text-primary);
     padding: 0 1em;
+    font-family: 'Sora', sans-serif;
 }
 
 form input {
@@ -67,7 +68,7 @@ form input[type=checkbox] {
     height:2rem;
 } */
 
-label[for=id_picture] {
+label[for=id_picture], label[for=id_raws] {
     background-color: var(--form-field-bg);
     display:flex;
     border-radius: 1rem;
@@ -76,7 +77,7 @@ label[for=id_picture] {
     align-items:center;
     cursor:pointer;
 }
-label[for=id_picture]:hover {
+label[for=id_picture]:hover, label[for=id_raws]:hover {
     filter:brightness(1.3);
 }
 

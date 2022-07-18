@@ -12,6 +12,7 @@ class NovelForm(forms.ModelForm):
     # because we need to pull out things like content_type
     picture = forms.FileField(required=False, label="click to upload (max "+max_upload_limit_text + ")")
     upload_field_name = 'picture'
+    raws = forms.FileField(required=False, label="click to upload raws")
     
     class Meta:
         model = Novel
@@ -21,8 +22,6 @@ class NovelForm(forms.ModelForm):
         queryset = Genre.objects.all(),
         widget = forms.CheckboxSelectMultiple
     )
-
-    # title = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
 
     def clean(self):
         cleaned_data = super().clean()

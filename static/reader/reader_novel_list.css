@@ -1,0 +1,45 @@
+.novel-card {
+    background:var(--dark-card);
+    margin:1rem 1rem;
+    padding: 1em;
+    border-radius: 0.7rem;
+}
+
+.novel-card h1 {
+    font-size:1.1em;
+}
+
+.novel-card h1, .novel-card a, .novel-card p {
+    margin: 0.5em 0;
+}
+
+.novel-synopsis {
+    max-height:4em;
+    overflow-y:auto;
+}
+
+.novel-genres{
+    /* line-height: 1.6rem; */
+}
+
+.tag {
+    background-color: var(--dark-tags);
+    margin-right:0.4em;
+    margin-top: 0.4em;
+    padding: 0.4em;
+    border-radius: 0.7em;
+    display:inline-block;
+}
+
+img {
+    /* display:none; */
+    width:100%
+
+}
+
+.novel-link:link {
+    color: var(--text-color-primary)
+}
+.novel-link:visited {
+    color: var(--text-color-muted)
+}

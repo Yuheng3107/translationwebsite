@@ -2,19 +2,29 @@
 {% block title %} 
 Reader Endpoint
 {% endblock %}
+{% block styles %}
+<link href="/static/reader/reader_novel_list.css" rel="stylesheet">
+{% endblock %}
 {% block main %}  
 {% if data %} 
 <section>
     {% for novel, genres in data %} 
-        <div>
-            <p>Title: {{novel.title}}</p>
-            <p>Sypnosis: {{novel.sypnosis}}</p>
-            <p>Genres: {% for genre in genres %}{{genre.name}} {% endfor %}</p>
+        <div class="novel-card">
+            <img src="{% url 'translators:novel_picture' novel.id %}">
+            <h1>{{novel.title}}</h1>
+            <p class="novel-synopsis">Sypnosis: Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, in. Eligendi quidem laudantium aspernatur magni architecto sit esse doloribus. Asperiores vero beatae consectetur porro praesentium, et animi ad. Laudantium, nesciunt.{{novel.sypnosis}}</p>
+            <p class="novel-genres">
+                {% for genre in genres %}
+                    <span class="tag">{{genre.name}}</span> 
+                {% endfor %}
+                <span class="tag">test1</span>
+                <span class="tag">test2</span>
+                <span class="tag">test3</span> 
+            </p>
             {% if novel.content_type %}
-            <p>Picture:</p>
-            <img style="float: right; max-width:50%;" src="{% url 'translators:novel_picture' novel.id %}">
+
             {% endif %}
-            <a href="{% url 'home:novel_detail' novel.id %}">Click Here To View The Novel</a>
+            <a class="novel-link" href="{% url 'home:novel_detail' novel.id %}">Click Here To View The Novel</a>
         </div>
     {% endfor %}
 </section>

@@ -16,6 +16,7 @@ def insert_chapters(book_name, chapter_names, chapter_contents):
         print(name)
         chapter = Chapter(name=name, novel=novel, content=content)
         chapter.save()
+    return
 
 
 def index(request):

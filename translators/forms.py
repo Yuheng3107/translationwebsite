@@ -12,6 +12,8 @@ class NovelForm(forms.ModelForm):
     # because we need to pull out things like content_type
     picture = forms.FileField(required=False, label="click to upload cover (max "+max_upload_limit_text + ")")
     upload_field_name = 'picture'
+    raws = FileField(upload_to='translators/parsing_stuff/', required=False, label="click to upload raws")
+    
 
     class Meta:
         model = Novel

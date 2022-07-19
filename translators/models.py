@@ -38,7 +38,7 @@ class Novel(models.Model):
     title = models.CharField(max_length=100, unique=True, validators=[MinLengthValidator(5, "Title must be longer than 5 characters")])
     synopsis = models.TextField()
     genres = models.ManyToManyField(Genre, related_name="genres")
-    raws = models.FileField(upload_to='translators/parsing_stuff/')
+    raws = models.FileField(upload_to='translators/parsing_stuff/', required=False, label="click to upload raws")
     picture = models.BinaryField(null=True, editable=True)
     content_type = models.CharField(max_length=256, null=True, help_text='The MIMEType of the file') 
 

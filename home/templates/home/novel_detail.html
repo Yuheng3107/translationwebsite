@@ -6,14 +6,19 @@
 {% endblock %}
 {% block main %}  
 {% if novel %}
+<p>Title: {{novel.title}}</p>
 {{novel.sypnosis}}
 Genres:
 {% for genre in genres %}
 {{genre.name}}
 {% endfor %}
-{% if novel.content_type %}
+{% if novel.picture %}
 <p>Picture:</p>
 <img style="float: right; max-width:50%;" src="{% url 'translators:novel_picture' novel.id %}">
 {% endif %}
+<p>Chapters:</p>
+{% for chapter in chapters %}
+<p><a>{{chapter.name}}</a></p>
+{% endfor %}
 {% endif %}
 {% endblock %}

@@ -12,7 +12,7 @@ Reader Endpoint
         <div class="novel-card">
             <img src="{% url 'translators:novel_picture' novel.id %}">
             <h1>{{novel.title}}</h1>
-            <p class="novel-synopsis">Sypnosis: Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, in. Eligendi quidem laudantium aspernatur magni architecto sit esse doloribus. Asperiores vero beatae consectetur porro praesentium, et animi ad. Laudantium, nesciunt.{{novel.sypnosis}}</p>
+            <p class="novel-synopsis">Sypnosis: {{novel.synopsis }}     </p>
             <p class="novel-genres">
                 {% for genre in genres %}
                     <span class="tag">{{genre.name}}</span> 

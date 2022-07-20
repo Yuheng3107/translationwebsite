@@ -13,7 +13,6 @@ def insert_chapters(book_name, chapter_names, chapter_contents):
     novel = get_object_or_404(Novel, title=book_name)
     data = zip(chapter_names, chapter_contents)
     for name, content in data:
-        print(name)
         chapter = Chapter(name=name, novel=novel, content=content)
         chapter.save()
     return
@@ -36,12 +35,12 @@ class NovelFormView(LoginRequiredMixin, View):
         return render(request, self.template_name, ctx)
 
     def post(self, request):
-        form = NovelForm(request.POST, request.FILES or None)
-
+        form = NovelForm(request.POST, request.FILES)
         if not form.is_valid():
             ctx = {"form": form}
             return render(request, self.template_name, ctx)
-        novel = form.save()
+        novel = form.save(commit=False)
+        novel.picture = novel.picture.read()
         novel.save()
         form.save_m2m()
     

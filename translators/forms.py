@@ -42,6 +42,7 @@ class NovelForm(forms.ModelForm):
             instance.content_type = f.content_type
             instance.picture = bytearr  # Overwrite with the actual image data
 
+
         if commit:
             instance.save()
             self.save_m2m()

@@ -29,11 +29,11 @@ def parse(book_name):
             if line == "\n":
                 continue
             if line.strip().startswith("第") and line.find("章") != -1:
-                chapter_names.append(line)
+                chapter_names.append(line.strip())
                 counter += 1
                 empty_list = list()
                 chapter_contents.append(empty_list)
             if counter > -1:
-                chapter_contents[counter].append(line)
+                chapter_contents[counter].append(line.strip())
         return (chapter_names, chapter_contents)
 

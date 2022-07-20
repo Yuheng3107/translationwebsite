@@ -13,6 +13,7 @@ def insert_chapters(book_name, chapter_names, chapter_contents):
     novel = get_object_or_404(Novel, title=book_name)
     data = zip(chapter_names, chapter_contents)
     for name, content in data:
+        print(name)
         chapter = Chapter(name=name, novel=novel, content=content)
         chapter.save()
     return

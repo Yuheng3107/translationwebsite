@@ -31,3 +31,14 @@ class NovelDetailView(DetailView):
         ctx = {'novel': novel, 'genres': genres, 'chapters': chapters}
         return render(request, self.template_name, ctx)
     
+class ChapterDetailView(DetailView):
+    model = Chapter
+    template_name = 'home/chapter.html'
+
+    def get(self, request, novel_pk, chapter_pk):
+        novel_title = Novel.objects.get(id=novel_pk).title
+        chapter = Chapter.objects.get(id=chapter_pk)
+        ctx = {'novel_title': novel_title, 'chapter': chapter}
+        return render(request, self.template_name, ctx)
+
+

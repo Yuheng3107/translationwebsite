@@ -18,7 +18,7 @@ Genres:
 {% endif %}
 <p>Chapters:</p>
 {% for chapter in chapters %}
-<p><a>{{chapter.name}}</a></p>
+<p><a href="{% url 'home:chapter_detail' novel.id chapter.id %}">{{chapter.name}}</a></p>
 {% endfor %}
 {% endif %}
 {% endblock %}

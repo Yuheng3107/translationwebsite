@@ -1,0 +1,12 @@
+{% extends "./layout.html" %} 
+{% block title %} 
+{{chapter.name}}
+{% endblock %} 
+
+{% block main %} 
+Novel: {{novel_title}}
+Content: 
+{% for line in chapter.content %}
+<p>{{line}}</p>
+{% endfor %}
+{% endblock %}

@@ -15,7 +15,7 @@ class NovelListView(ListView):
             genres = [genre for genre in Genre.objects.all() if genre in novel.genres.all()]
             genre_list.append(genres)
         
-        data = [(novel, genres) for novel in novels for genres in genre_list]
+        data = zip(novels, genre_list)
         ctx = {'data': data}
         print(data)
         return render(request, self.template_name, ctx)

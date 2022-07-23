@@ -59,6 +59,13 @@ def stream_file(request, pk):
     response.write(novel.picture)
     return response
 
+class TranslateView(LoginRequiredMixin, View):
+    template_name = "translators/translate.html"
 
+    def get(self, request, novel_pk, chapter_pk):
+        novel = Novel.objects.get(id=novel_pk)
+        chapter = Chapter.objects.filter(novel=novel.title).get(id=chapter_pk)
+        ctx = {'novel': novel, 'chapter': chapter}
+        return render(request, self.template_name, ctx)
 
-
+    
